@@ -8,11 +8,16 @@ import { bindActionCreators } from 'redux'
 
 import store, { history } from '../redux'
 
+
 import Home from '../components/home'
 import DummyView from '../components/dummy-view'
 import NotFound from '../components/404'
 
 import Startup from './startup'
+import DashMain from '../components/dash-main'
+import DashProfile from '../components/dash-profile'
+
+
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
@@ -84,6 +89,8 @@ export default (props) => {
           <Switch>
             <Route exact path="/" component={() => <DummyView />} />
             <Route exact path="/dashboard" component={() => <Home />} />
+            <Route exact path="/dashboard/main/" component={() => <DashMain />} />
+            <Route exact path="/dashboard/profile/:profileName" component={() => <DashProfile />} />
             <PrivateRouteConnected exact path="/hidden-route" component={() => <DummyView />} />
             <Route component={() => <NotFound />} />
           </Switch>

@@ -1,17 +1,20 @@
 import React from 'react'
-import { Link } from "react-router-dom"
-import Header from './header'
+import { Link, useParams } from "react-router-dom"
 
 
-const Home = () => {
+
+
+
+const DashProfile = () => {
+  const { profileName }  = useParams()
   return (
     <div>
-      <Header />
       <div className="flex items-center justify-center h-screen">
         <div id="title" className="bg-indigo-800 text-white font-bold rounded-lg border shadow-lg p-10">
-          Dashboard
-          <Link to="/dashboard/profile/3c3add9b-1f1f-4760-a66d-df0e9fb8fcdb"> Go To Profile </Link>
+          Profile
+          <Link to="/dashboard/"> Go To Root </Link>
           <Link to="/dashboard/main"> Go To Main </Link>
+          <div id="username">{profileName}</div>
         </div>
       </div>
     </div>
@@ -19,7 +22,7 @@ const Home = () => {
 }
 
 
-Home.propTypes = {}
+DashProfile.propTypes = {}
 
 
-export default React.memo(Home) 
+export default React.memo(DashProfile)
